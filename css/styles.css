@@ -91,6 +91,10 @@ p {
     max-width: 100%;
 }
 
+.logo img {
+    max-height: 60px;
+}
+
 .navbar {
     margin-bottom: 0;
     border: none;
@@ -138,9 +142,9 @@ p {
     margin-top: 14px;
 }
 
-.phone img {
-    width: 37px;
-    height: 37px;
+.phone i {
+    font-size: 36px;
+    color: #e52328;
 }
 
 .phone span {
@@ -162,10 +166,12 @@ p {
             Carousel Styling Section
 *********************************************/
 #heroCarousel {
-    width: 100%;
+    width: 100vw;
     height: 700px;
     position: relative;
     overflow: hidden;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
 }
 
 #heroCarousel .carousel-item img {
@@ -174,12 +180,42 @@ p {
     object-fit: cover;
 }
 
-/* Controls */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    color: #fff;
+/* Hero Carousel Controls */
+#heroCarousel .carousel-control-prev,
+#heroCarousel .carousel-control-next {
     width: 50px;
     height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(168, 31, 35, 0.9);
+    border-radius: 50%;
+    opacity: 0.7; 
+    transition: all 0.3s ease;
+}
+
+#heroCarousel:hover .carousel-control-prev,
+#heroCarousel:hover .carousel-control-next {
+    opacity: 1;
+}
+
+#heroCarousel .carousel-control-prev:hover,
+#heroCarousel .carousel-control-next:hover {
+    background-color: #a81f23;
+    transform: translateY(-50%) scale(1.1);
+}
+
+#heroCarousel .carousel-control-prev {
+    left: 20px; 
+}
+
+#heroCarousel .carousel-control-next {
+    right: 20px; 
+}
+
+#heroCarousel .carousel-control-prev-icon,
+#heroCarousel .carousel-control-next-icon {
+    width: 20px;
+    height: 20px;
 }
 
 /* Captions */
@@ -232,7 +268,6 @@ p {
 }
 
 /* Carousel Caption Animations */
-/* Base state: hidden before slide is active */
 .slidertext1,
 .slidertext2,
 .slidertext3,
@@ -392,7 +427,7 @@ p {
     padding: 25px;
     background: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3 ease;
+    transition: all 0.3s ease;
 }
 
 .single-service h3 a {
@@ -435,6 +470,7 @@ p {
 *********************************************/
 #counter {
     background: url(../images/counter-bg.jpg);
+    padding: 60px 0;
 }
 
 .counter-icon {
@@ -595,23 +631,12 @@ p {
     width: 0;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    width: 50px;
-    height: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    opacity: 0.8;
-}
-
 .carousel-item {
     padding: 0 60px;
 }
 
 @media (max-width: 768px) {
-    .carousel-item {
+    #testimonialCarousel .carousel-item {
         padding: 0 20px;
     }
 }
@@ -698,8 +723,8 @@ p {
     opacity: 1;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
+#partnersCarousel .carousel-control-prev,
+#partnersCarousel .carousel-control-next {
     width: 45px;
     height: 45px;
     top: 50%;
@@ -710,27 +735,27 @@ p {
     transition: all 0.3s ease;
 }
 
-.carousel:hover .carousel-control-prev,
-.carousel:hover .carousel-control-next {
+#partnersCarousel .carousel:hover .carousel-control-prev,
+#partnersCarousel .carousel:hover .carousel-control-next {
     opacity: 1;
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
+#partnersCarousel .carousel-control-prev:hover,
+#partnersCarousel .carousel-control-next:hover {
     background-color: #a81f23;
     transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-control-prev {
+#partnersCarousel .carousel-control-prev {
     left: -60px;
 }
 
-.carousel-control-next {
+#partnersCarousel .carousel-control-next {
     right: -60px;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+#partnersCarousel .carousel-control-prev-icon,
+#partnersCarousel .carousel-control-next-icon {
     width: 18px;
     height: 18px;
 }
@@ -755,8 +780,8 @@ p {
         font-size: 32px;
     }
 
-    .carousel-control-prev,
-    .carousel-control-next {
+    #partnersCarousel .carousel-control-prev,
+    #partnersCarousel .carousel-control-next {
         display: none;
     }
 
@@ -768,4 +793,163 @@ p {
         max-height: 50px;
         max-width: 70%;
     }
+}
+
+/*********************************************
+            Contact Section
+*********************************************/
+#contact {
+    scroll-margin-top: 80px;
+    padding: 80px 0;
+    background: #f9f9f9;
+}
+
+.contact-wrap h1 {
+    margin-bottom: 50px;
+}
+
+.contact-info {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+.contact-info-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: #e52328;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.contact-icon i {
+    font-size: 22px;
+    color: #fff;
+}
+
+.contact-details h5 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #801821;
+    margin-bottom: 5px;
+}
+
+.contact-details p {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+}
+
+.contact-details a {
+    color: #666;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    color: #e52328;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form h3 {
+    font-size: 28px;
+    color: #801821;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-control {
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 12px 15px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #e52328;
+    box-shadow: 0 0 0 0.2rem rgba(229, 35, 40, 0.15);
+    outline: none;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.submit-btn {
+    background: #801821;
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    background: #e52328;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(229, 35, 40, 0.3);
+}
+
+/*********************************************
+            Footer Section
+*********************************************/
+.footer {
+    background: #222;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    color: #bbb;
+    margin: 0;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #e52328;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #fff;
 }
