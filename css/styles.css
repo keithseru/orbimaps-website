@@ -958,3 +958,645 @@ textarea.form-control {
 .footer a:hover {
     color: #fff;
 }
+
+/* ================================================
+   MOBILE RESPONSIVE STYLES FOR ORBIMAPS WEBSITE
+   Add this to your styles.css file
+   ================================================ */
+
+/* Tablet View (768px - 991px) */
+@media (max-width: 991px) {
+    /* Navbar adjustments */
+    .navbar-brand.logo img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .phone {
+        margin-top: 15px !important;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Hero Carousel */
+    .carousel-caption {
+        padding: 10px 20px;
+    }
+
+    .slidertext1 {
+        font-size: 28px !important;
+    }
+
+    .slidertext2 {
+        font-size: 20px !important;
+    }
+
+    .slidertext3 {
+        font-size: 14px !important;
+        margin-bottom: 10px;
+    }
+
+    .slidertext4 a {
+        padding: 8px 20px !important;
+        font-size: 14px !important;
+    }
+
+    /* About Section */
+    .about-wrap h1 {
+        font-size: 32px;
+    }
+
+    .aboutTxt {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .about-types .col-md-6 {
+        margin-bottom: 20px;
+    }
+
+    /* Services Section */
+    .service-wrap h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .single-service {
+        margin-bottom: 20px;
+        padding: 25px;
+    }
+
+    /* Counter Section */
+    #counter .counterbox {
+        margin-bottom: 25px;
+    }
+
+    /* Portfolio */
+    .portfolio-wrap h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .project-image {
+        margin-bottom: 20px;
+    }
+
+    /* Testimonials */
+    .testimonials-wrap h1 {
+        font-size: 32px;
+    }
+
+    .testService {
+        margin-bottom: 20px;
+    }
+
+    /* Partners */
+    .partners-wrap h1 {
+        font-size: 32px;
+    }
+
+    .partner {
+        margin-bottom: 20px;
+    }
+
+    /* Contact */
+    #contact h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .contact-info {
+        margin-bottom: 30px;
+    }
+}
+
+/* Mobile View (576px - 767px) */
+@media (max-width: 767px) {
+    /* Navbar */
+    .navbar-brand.logo img {
+        max-width: 120px;
+    }
+
+    .navbar-nav {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .nav-item {
+        padding: 8px 0;
+    }
+
+    .phone {
+        border-left: none;
+        border-top: 1px solid #ddd;
+        padding-top: 15px;
+        margin-top: 15px;
+    }
+
+    /* Hero Carousel - Show on mobile */
+    .carousel-caption.d-none.d-md-block {
+        display: block !important;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+        left: 5%;
+        right: 5%;
+        bottom: 10px;
+    }
+
+    .slidertext1 {
+        font-size: 20px !important;
+        margin-bottom: 5px;
+    }
+
+    .slidertext2 {
+        font-size: 16px !important;
+        margin-bottom: 5px;
+    }
+
+    .slidertext3 {
+        font-size: 12px !important;
+        margin-bottom: 8px;
+        display: none; /* Hide description on very small screens */
+    }
+
+    .slidertext4 a {
+        padding: 6px 16px !important;
+        font-size: 12px !important;
+    }
+
+    /* About Section */
+    .about-wrap {
+        padding: 40px 0 !important;
+    }
+
+    .about-wrap h1 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .aboutTxt {
+        font-size: 18px;
+        margin: 15px 0;
+    }
+
+    .about-wrap p {
+        font-size: 14px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+    .about-types {
+        margin-top: 20px;
+    }
+
+    .aboutIcon {
+        font-size: 30px;
+        min-width: 40px;
+    }
+
+    .icon-content h5 {
+        font-size: 16px;
+    }
+
+    .aboutContent {
+        font-size: 13px;
+    }
+
+    /* Quote Section */
+    .quote-wrap {
+        padding: 30px 0;
+        text-align: center;
+    }
+
+    .quote-wrap h2 {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .quote-wrap p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .quote-wrap .btn {
+        margin-top: 15px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* Services */
+    .service-wrap {
+        padding: 40px 0 !important;
+    }
+
+    .service-wrap h1 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .single-service {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .service-icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .single-service h3 {
+        font-size: 18px;
+        margin: 15px 0;
+    }
+
+    .single-service p {
+        font-size: 13px;
+    }
+
+    /* Counter */
+    #counter {
+        padding: 40px 0 !important;
+    }
+
+    .counterbox {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .counter-icon {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .counter-number {
+        font-size: 28px;
+    }
+
+    .counter-text {
+        font-size: 14px;
+    }
+
+    /* Portfolio */
+    .portfolio-wrap {
+        padding: 40px 0 !important;
+    }
+
+    .portfolio-wrap h1 {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .project-image {
+        margin-bottom: 20px;
+    }
+
+    .portfolio-overlay h3 {
+        font-size: 18px;
+    }
+
+    .portfolio-tags {
+        font-size: 12px;
+    }
+
+    /* Testimonials */
+    .testimonials-wrap {
+        padding: 40px 0;
+    }
+
+    .testimonials-wrap h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .testService {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .testi-info p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .testService .name {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    /* Partners */
+    .partners-wrap {
+        padding: 40px 0;
+    }
+
+    .partners-wrap h1 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .partners-wrap p {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .partner-image {
+        padding: 15px;
+    }
+
+    .partner-image img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    /* Contact */
+    #contact {
+        padding: 40px 0;
+    }
+
+    #contact h1 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .contact-info-item {
+        margin-bottom: 25px;
+        padding: 15px;
+    }
+
+    .contact-icon {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .contact-details h5 {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .contact-details p {
+        font-size: 14px;
+    }
+
+    .contact-form {
+        padding: 25px;
+    }
+
+    .contact-form h3 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer p {
+        font-size: 12px;
+        line-height: 1.8;
+    }
+}
+
+/* Extra Small Mobile View (max-width: 575px) */
+@media (max-width: 575px) {
+    /* General spacing adjustments */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Navbar */
+    .navbar-brand.logo img {
+        max-width: 100px;
+    }
+
+    .navbar-toggler {
+        padding: 6px 10px;
+        font-size: 18px;
+    }
+
+    /* Hero Carousel */
+    .carousel-item img {
+        min-height: 300px;
+        object-fit: cover;
+    }
+
+    .carousel-caption {
+        left: 3%;
+        right: 3%;
+        bottom: 5px;
+        padding: 10px;
+    }
+
+    .slidertext1 {
+        font-size: 16px !important;
+        line-height: 1.2;
+    }
+
+    .slidertext2 {
+        font-size: 14px !important;
+    }
+
+    .slidertext3 {
+        display: none !important;
+    }
+
+    .slidertext4 a {
+        padding: 5px 12px !important;
+        font-size: 11px !important;
+    }
+
+    /* Section headings */
+    h1 {
+        font-size: 24px !important;
+    }
+
+    h2 {
+        font-size: 20px !important;
+    }
+
+    h3 {
+        font-size: 16px !important;
+    }
+
+    /* About */
+    .aboutTxt {
+        font-size: 16px;
+    }
+
+    .about-wrap .mx-4 {
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+    }
+
+    /* Quote */
+    .quote-wrap h2 {
+        font-size: 18px;
+    }
+
+    .quote-wrap .btn {
+        font-size: 13px;
+        padding: 10px 20px;
+    }
+
+    /* Services */
+    .service-icon {
+        font-size: 35px;
+    }
+
+    .single-service h3 {
+        font-size: 16px;
+    }
+
+    /* Counter */
+    .counter-number {
+        font-size: 24px;
+    }
+
+    .counter-text {
+        font-size: 12px;
+    }
+
+    /* Partners carousel controls */
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 8%;
+    }
+
+    /* Contact form */
+    .contact-form {
+        padding: 20px 15px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+    }
+
+    .form-control {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .carousel-item img {
+        min-height: 400px;
+    }
+
+    .carousel-caption {
+        padding: 8px;
+    }
+
+    .slidertext1,
+    .slidertext2 {
+        margin-bottom: 3px;
+    }
+}
+
+/* ================================================
+   ADDITIONAL IMPROVEMENTS
+   ================================================ */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 767px) {
+    .nav-link,
+    .btn,
+    a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 12px 15px;
+    }
+}
+
+/* Better image loading */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent horizontal scroll */
+body {
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Improve carousel indicators on mobile */
+@media (max-width: 767px) {
+    .carousel-indicators [data-bs-target] {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin: 0 3px;
+    }
+}
+
+/* Better spacing for sections on mobile */
+@media (max-width: 767px) {
+    section,
+    .py-5 {
+        padding-top: 30px !important;
+        padding-bottom: 30px !important;
+    }
+}
+
+/* Improve readability */
+@media (max-width: 767px) {
+    p {
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+}
+
+/* Fix for very small screens */
+@media (max-width: 360px) {
+    .navbar-brand.logo img {
+        max-width: 80px;
+    }
+
+    h1 {
+        font-size: 20px !important;
+    }
+
+    .slidertext1 {
+        font-size: 14px !important;
+    }
+
+    .slidertext2 {
+        font-size: 12px !important;
+    }
+}
