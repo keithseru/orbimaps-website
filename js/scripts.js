@@ -1,94 +1,140 @@
-// Counter Section
+/* =========================================================
+   COUNTER ANIMATION
+   - Animates numbers from data-from to data-to
+   - Runs once when DOM is fully loaded
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
     const counters = document.querySelectorAll(".counter-number");
 
+    // Exit early if no counters exist
+    if (!counters.length) return;
+
     counters.forEach((counter) => {
-        const from = parseInt(counter.getAttribute("data-from")) || 0;
-        const to = parseInt(counter.getAttribute("data-to")) || 0;
-        const speed = parseInt(counter.getAttribute("data-speed")) || 2000;
-        const increment = Math.ceil(to / (speed / 50));
+        // Read configuration from data attributes
+        const startValue = parseInt(counter.dataset.from) || 0;
+        const endValue = parseInt(counter.dataset.to) || 0;
+        const duration = parseInt(counter.dataset.speed) || 2000;
 
-        let current = from;
+        // Calculate how much to increment per tick
+        const step = Math.ceil(endValue / (duration / 50));
+        let currentValue = startValue;
 
+        // Animate the counter
         const timer = setInterval(() => {
-            current += increment;
-            if (current >= to) {
-                current = to;
+            currentValue += step;
+
+            // Ensure we do not exceed the target value
+            if (currentValue >= endValue) {
+                currentValue = endValue;
                 clearInterval(timer);
             }
-            counter.textContent = current;
+
+            counter.textContent = currentValue;
         }, 50);
     });
 });
 
-// Add mouse drag functionality to carousel
+/* =========================================================
+   TESTIMONIALS CAROUSEL – DRAG / SWIPE SUPPORT
+   - Enables swipe on mobile and drag on desktop
+   - Prevents accidental text selection
+   - Pauses autoplay during interaction
+========================================================= */
+
+// Select the carousel safely
 const carousel = document.querySelector("#testimonialsCarousel");
-const carouselInner = carousel.querySelector(".carousel-inner");
-let isDragging = false;
-let startPos = 0;
-let currentTranslate = 0;
-let prevTranslate = 0;
-let animationID = 0;
-let currentIndex = 0;
 
-const carouselInstance = new bootstrap.Carousel(carousel, {
-    interval: 5000,
-    wrap: true,
-});
+// Exit early if carousel does not exist
+if (carousel) {
+    const carouselInner = carousel.querySelector(".carousel-inner");
 
-carousel.addEventListener("mousedown", dragStart);
-carousel.addEventListener("touchstart", dragStart);
-carousel.addEventListener("mouseup", dragEnd);
-carousel.addEventListener("touchend", dragEnd);
-carousel.addEventListener("mousemove", drag);
-carousel.addEventListener("touchmove", drag);
-carousel.addEventListener("mouseleave", dragEnd);
+    // Drag state variables
+    let isDragging = false;
+    let startX = 0;
 
-// Prevent context menu on long press
-carousel.addEventListener("contextmenu", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
-});
+    // Initialize Bootstrap carousel
+    const carouselInstance = new bootstrap.Carousel(carousel, {
+        interval: 5000,
+        wrap: true,
+        pause: false,
+    });
 
-function dragStart(e) {
-    if (e.type === "touchstart") {
-        startPos = e.touches[0].clientX;
-    } else {
-        startPos = e.clientX;
+    /* -----------------------------
+       EVENT LISTENERS
+    ----------------------------- */
+
+    carousel.addEventListener("mousedown", startDrag);
+    carousel.addEventListener("touchstart", startDrag, { passive: true });
+
+    carousel.addEventListener("mousemove", onDrag);
+    carousel.addEventListener("touchmove", onDrag, { passive: false });
+
+    carousel.addEventListener("mouseup", endDrag);
+    carousel.addEventListener("touchend", endDrag);
+    carousel.addEventListener("mouseleave", endDrag);
+
+    // Prevent context menu on long press / right click
+    carousel.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+    });
+
+    // Set default cursor
+    carousel.style.cursor = "grab";
+
+    /* -----------------------------
+       DRAG FUNCTIONS
+    ----------------------------- */
+
+    function startDrag(event) {
+        isDragging = true;
+
+        // Get starting X position
+        startX =
+            event.type === "touchstart"
+                ? event.touches[0].clientX
+                : event.clientX;
+
+        // Visual feedback
         carousel.style.cursor = "grabbing";
+
+        // Pause autoplay during interaction
+        carouselInstance.pause();
     }
-    isDragging = true;
-    carouselInstance.pause();
-}
 
-function drag(e) {
-    if (!isDragging) return;
+    function onDrag(event) {
+        if (!isDragging) return;
 
-    e.preventDefault();
-    const currentPosition =
-        e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
-    const diff = currentPosition - startPos;
-
-    // Only trigger slide change if dragged more than 50px
-    if (Math.abs(diff) > 50) {
-        if (diff > 0) {
-            // Dragged right - go to previous
-            carouselInstance.prev();
-        } else {
-            // Dragged left - go to next
-            carouselInstance.next();
+        // Prevent scrolling while swiping horizontally
+        if (event.type === "touchmove") {
+            event.preventDefault();
         }
+
+        const currentX =
+            event.type === "touchmove"
+                ? event.touches[0].clientX
+                : event.clientX;
+
+        const deltaX = currentX - startX;
+
+        // Trigger slide change only after meaningful drag
+        if (Math.abs(deltaX) > 50) {
+            deltaX > 0
+                ? carouselInstance.prev()
+                : carouselInstance.next();
+
+            isDragging = false;
+            carousel.style.cursor = "grab";
+        }
+    }
+
+    function endDrag() {
+        if (!isDragging) return;
+
         isDragging = false;
         carousel.style.cursor = "grab";
+
+        // Resume autoplay
+        carouselInstance.cycle();
     }
 }
-
-function dragEnd() {
-    isDragging = false;
-    carousel.style.cursor = "grab";
-    carouselInstance.cycle();
-}
-
-// Set initial cursor
-carousel.style.cursor = "grab";
